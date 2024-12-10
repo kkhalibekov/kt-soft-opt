@@ -67,42 +67,6 @@ int main()
               << " ms" << std::endl;
     writeArrayToFile("output_test1_small_grey_k3_vanherk_simd_omp.txt", dst, rows, cols);
 
-    window_size = 5;
-    wx = window_size / 2;
-    wy = window_size / 2;
-
-    start = std::chrono::high_resolution_clock::now();
-    erosion_naive(img, dst, W, H, stride, wx, wy);
-    end = std::chrono::high_resolution_clock::now();
-    std::cout << "erosion_naive img1sg_k5  "
-              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
-              << " ms" << std::endl;
-    writeArrayToFile("output_test1_small_grey_k5.txt", dst, rows, cols);
-
-    start = std::chrono::high_resolution_clock::now();
-    erosion_naive_simd_omp(img, dst, W, H, stride, wx, wy);
-    end = std::chrono::high_resolution_clock::now();
-    std::cout << "erosion_naive_simd_omp img1sg_k5 "
-              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
-              << " ms" << std::endl;
-    writeArrayToFile("output_test1_small_grey_k5_simd_omp.txt", dst, rows, cols);
-
-    start = std::chrono::high_resolution_clock::now();
-    erosion_vhgw(img, dst, W, H, wx, wy);
-    end = std::chrono::high_resolution_clock::now();
-    std::cout << "erosion_vhgw img1sg_k5 "
-              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
-              << " ms" << std::endl;
-    writeArrayToFile("output_test1_small_grey_k5_vanherk.txt", dst, rows, cols);
-
-    start = std::chrono::high_resolution_clock::now();
-    erosion_vhgw_simd_omp(img, dst, W, H, wx, wy);
-    end = std::chrono::high_resolution_clock::now();
-    std::cout << "erosion_vhgw_simd_omp img1sg_k5  "
-              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
-              << " ms" << std::endl;
-    writeArrayToFile("output_test1_small_grey_k5_vanherk_simd_omp.txt", dst, rows, cols);
-
     window_size = 7;
     wx = window_size / 2;
     wy = window_size / 2;
